@@ -3,6 +3,7 @@ package com.tutorial.batch;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -29,7 +30,7 @@ public class JobConfiguration {
     public Step step1() {
         return stepBuilderFactory.get("step1")
             .tasklet((contribution, chunkContext) -> {
-                Map<String, Object> jobParameters = chunkContext.getStepContext().getJobParameters();
+                JobParameters jobParameters = contribution.getStepExecution().getJobExecution().getJobParameters();
 
                 System.out.println("=============================");
                 System.out.println("Step1 has executed");
