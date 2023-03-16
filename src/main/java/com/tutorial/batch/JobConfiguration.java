@@ -17,10 +17,16 @@ public class JobConfiguration {
     private final StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Job job() {
-        return jobBuilderFactory.get("Job")
+    public Job helloJob() {
+        return jobBuilderFactory.get("job1")
             .start(step1())
-            .next(step2())
+            .build();
+    }
+
+    @Bean
+    public Job helloJob2() {
+        return jobBuilderFactory.get("job2")
+            .start(step2())
             .build();
     }
 
