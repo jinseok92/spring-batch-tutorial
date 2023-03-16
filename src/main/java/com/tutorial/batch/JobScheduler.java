@@ -23,7 +23,7 @@ public class JobScheduler {
     private final JobConfiguration jobConfiguration;
 
 //    @Scheduled(cron = "0 * * * * *")
-    @Scheduled(initialDelay = 10000, fixedDelay = 30000)
+    @Scheduled(initialDelay = 3000, fixedDelay = 5000)
     public void jobScheduled()
         throws JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
